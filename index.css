@@ -1,0 +1,94 @@
+
+body {
+    background-image: url('coffee.gif');
+    max-width:100%;
+    max-height:100%;
+    background-size: 100%;
+    overflow-y: none;
+}
+
+form {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+fieldset, legend {
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f1f1ff;
+    border: 5px solid #212121;
+}
+
+label {
+    display: block;
+    font-size: 170%;
+}
+
+input {
+    font-size: 120%;
+    border: 2px solid hsl(300, 18%, 41%);
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: 0;
+    outline-color: transparent;
+    outline-style: none;
+  }
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+  }
+
+.firstName {
+
+    display: inline-block;
+    order: 0;
+}
+
+.lastName {
+
+    display: inline-block;
+    order: 1;
+}
+
+i {
+    padding: 10px;
+    background-image: none;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-position: center center;
+    max-width:100%;
+    max-height:100%;
+    background-size: 100%;
+    text-align: center;
+    opacity: 0%;
+  }
+
+  .forwardButton {
+      position: relative;
+      margin-top: 60px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 5px solid #f1f1f1;
+      background-image: url('threeDots.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      max-width:100%;
+      max-height:100%;
+      background-size: 80%;
+      background-color: #f1f1ff;
+  }
+
+  .buttonWrapper {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
