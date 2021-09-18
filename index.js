@@ -6,7 +6,9 @@ function leftButtonWidthChange() {
     leftButtonWidth = (winWidth - 80)/2;
     leftButtonWidth = leftButtonWidth + 'px';
     document.getElementById('buttonWrapper').style.left = leftButtonWidth;
-    console.log(leftButtonWidth)
+    leftSelectWidth = (winWidth - 40)/2;
+    leftSelectWidth = leftSelectWidth + 'px';
+    document.getElementById('shop').style.left = leftButtonWidth;
 }
 
 
@@ -36,6 +38,9 @@ function alphaNumeric(inputString, icon) {
 
 }
 
+var pageNum = 0;
+
+
 function proceedButton() {
     checkFirst = document.getElementById('firstIcon');
     checkLast = document.getElementById('lastIcon');
@@ -51,9 +56,70 @@ function proceedButton() {
         document.getElementById('forwardButton').style.backgroundColor = '#f1f1ff';
         document.getElementById('buttonWrapper').style.borderColor = '#f1f1f1'; 
     }
+
+    var selectShop = document.getElementById('shop');
+
+    if ((selectShop.value == "") && (pageNum == 1)) {
+        backToDots();
+    }
+
+    var drinkType = document.getElementById('drinkType').value;
+
+    if ((pageNum == 2)) {
+        if (drinkType == "") {
+            backToDots();
+        }
+        else if (drinkType == "espresso" || drinkType == "americano") {
+            document.getElementById('milk').style.display = 'none';
+        }
+        else {
+            document.getElementById('milk').style.display = 'block';
+            backToDots();
+        }
+    }
 }
 
-function moveForward1() {
-    document.getElementById('fieldset1').style.display = 'none';
-    document.getElementById('fieldset2').style.display = 'block';
+function proceedButton2() {
+
+    var milk = document.getElementById('milk').value;
+
+    if ((pageNum == 2)) {
+        if (milk == "") {
+            backToDots();
+        }
+        else {
+            document.getElementById('forwardButton').style.backgroundColor = '#a7ed87';
+            document.getElementById('forwardButton').style.border = '5px solid #f1f1f1';
+            document.getElementById('forwardButton').style.backgroundImage = 'url("arrowRight.png")';
+            document.getElementById('buttonWrapper').style.borderColor = '#a7ed87';
+            document.getElementById("forwardButton").disabled = false;
+        }
+    }
+}
+
+function moveForward() {
+    if (pageNum == 0) {
+        document.getElementById('fieldset1').style.display = 'none';
+        document.getElementById('fieldset2').style.display = 'block';
+    }
+    else if (pageNum == 1) {
+        document.getElementById('fieldset2').style.display = 'none';
+        document.getElementById('fieldset3').style.display = 'block';
+    }
+    else {
+        document.getElementById('fieldset3').style.display = 'none';
+        document.getElementById('finish').style.display = 'block';
+        document.getElementById('forwardButton').style.display = 'none';
+        document.getElementById('buttonWrapper').style.display = 'none';
+    }
+
+    pageNum = pageNum + 1;
+    console.log(pageNum);
+}
+
+function backToDots() {
+    document.getElementById('forwardButton').style.backgroundImage = 'url("threeDots.png")';
+    document.getElementById('forwardButton').style.backgroundColor = '#f1f1ff';
+    document.getElementById('buttonWrapper').style.borderColor = '#f1f1f1';
+    document.getElementById("forwardButton").disabled = true;
 }

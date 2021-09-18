@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client Form • JavaScript Project</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="greenTick.png" type="image/x-icon">  
+    <link rel="shortcut icon" href="greenTick.png" type="image/x-icon">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 
 <body onresize='leftButtonWidthChange()' onload="leftButtonWidthChange()">
@@ -17,24 +18,6 @@
 
     <legend>Client info:</legend>
 
-    <div class="firstName">
-    <label for="fname">First name:</label>
-    <input type="text" id="firstName" name="fname" placeholder="..." onkeyup="alphaNumeric('firstName','firstIcon')">
-    <i id="firstIcon"></i>    
-    </div>
-    
-    <div class="lastName">
-    <label for="lname">Last name:</label>
-    <input type="text" id="lastName" name="lname" placeholder="..." onkeyup="alphaNumeric('lastName','lastIcon')">
-    <i id="lastIcon"></i>
-    </div>
-    
-    </fieldset>
-
-    <fieldset id="fieldset2" class="name">
-
-        <legend>Client info:</legend>
-    
         <div class="firstName">
         <label for="fname">First name:</label>
         <input type="text" id="firstName" name="fname" placeholder="..." onkeyup="alphaNumeric('firstName','firstIcon')">
@@ -46,13 +29,61 @@
         <input type="text" id="lastName" name="lname" placeholder="..." onkeyup="alphaNumeric('lastName','lastIcon')">
         <i id="lastIcon"></i>
         </div>
-        
-        </fieldset>
+    
+    </fieldset>
 
+    <fieldset id="fieldset2">
+
+        <legend>Shop:</legend>
+    
+        <div class="shop">
+        <label for="shop">Choose the coffee shop:</label>
+        <select id="shop" placeholder="..." onmouseup="proceedButton()">
+            <option value="" disabled selected>...</option>
+            <option value="coffeeShopNorth">Coffee Shop "North"</option>
+            <option value="coffeeShopSouth">Coffee Shop "South"</option>
+            <option value="coffeeShopEast">Coffee Shop "East"</option>
+            <option value="coffeeShopWest">Coffee Shop "West"</option>
+        </select>
+        </div>
+        
+    </fieldset>
+
+    <fieldset id="fieldset3">
+
+        <legend>Drink:</legend>
+    
+        <div class="drinkType">
+        <label for="drinkType">Type of beverage:</label>
+        <select id="drinkType" placeholder="..." onmouseup="proceedButton()">
+            <option value="" disabled selected>...</option>
+            <option value="espresso">Espresso</option>
+            <option value="flatWhite">Flat White</option>
+            <option value="cappuccino">Cappuccino</option>
+            <option value="latte">Latte</option>
+            <option value="americano">Americano</option>
+        </select>
+        </div>
+        
+        <div id="milk">
+            <label for="milk" style="margin-top: 18px;">Milk:</label>
+            <select id="shop" placeholder="..." onmouseup="proceedButton2()">
+                <option value="" disabled selected>...</option>
+                <option value="regular">Regular</option>
+                <option value="soyMilk">Soy milk</option>
+                <option value="almondMilk">Almond milk</option>>
+        </select>
+        </div>
+        
+    </fieldset>
+
+    <div id="finish">
+        <p>Thank you for the purchase!</p>
+    </div>
 </form>
 
 <div class="buttonWrapper" id="buttonWrapper">
-<button class="forwardButton" id='forwardButton' onclick="moveForward1()"></button>
+<button class="forwardButton" id='forwardButton' onclick="moveForward(), backToDots()"></button>
 </div>
 
 <script src="index.js"></script>
